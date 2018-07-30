@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "name": "Dominic",
+        "address": "007,XYZ,POY-1",
+        "phone": "(0123) - 6478 2943",
+        "email": "dominic097@gmail.com"
+    },
+    {
+        "id": 2,
+        "name": "Dominic-Test1",
+        "address": "007,XYZ,POY-1",
+        "phone": "(0123) - 6478 2943",
+        "email": "dominic097@gmail.com"
+    },{
+        "id": 3,
+        "name": "Dominic-Test2",
+        "address": "007,XYZ,POY-1",
+        "phone": "(0123) - 6478 2943",
+        "email": "dominic097@gmail.com"
+    },
+    {
+        "id": 4,
+        "name": "Dominic-Test3",
+        "address": "007,XYZ,POY-1",
+        "phone": "(0123) - 6478 2943",
+        "email": "dominic097@gmail.com"
+    },
+    {
+        "id": 5,
+        "name": "Dominic-Test3",
+        "address": "007,XYZ,POY-1",
+        "phone": "(0123) - 6478 2943",
+        "email": "dominic097@gmail.com"
+    }
+]

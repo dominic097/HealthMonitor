@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "start": "gulp --gulpfile app/gulpfile.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "gulp-eslint-auto-fix": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-nodemon": "^2.2.1"
+  }
+}
