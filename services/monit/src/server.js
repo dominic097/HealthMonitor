@@ -1,7 +1,8 @@
 const http = require('http');
 const mongoose = require('mongoose');
 const app = require('./app');
-const config = require('./config/config');
+const config = require('./config/sysConfig');
+const scheduler = require('./scheduler/scheduler.controller.js');
 
 
 const mongoUri = config.mongo.host;
@@ -41,6 +42,7 @@ mongoose.connection.on('error', () => {
 });
 mongoose.connection.once('open', () => {
   console.log("mongodb connection open");
+  scheduler.init();
 });
 
 

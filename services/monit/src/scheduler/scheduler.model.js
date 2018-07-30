@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-
 /* eslint-disable no-unused-vars */
 // define the schema for our user model
 const schema = mongoose.Schema({
