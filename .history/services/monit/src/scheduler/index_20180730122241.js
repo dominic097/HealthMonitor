@@ -1,1 +1,0 @@
-const scheduler = require('./scheduler.controller.js');

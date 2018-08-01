@@ -1,1 +1,0 @@
-default exports scheduler = require('./scheduler.controller.js');
