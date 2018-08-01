@@ -1,0 +1,1 @@
+const serviceConfig = require('./health.config.js');

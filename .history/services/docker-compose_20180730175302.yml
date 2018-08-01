@@ -1,0 +1,71 @@
+version: "3"
+services:
+  nginx:
+    build: ./nginx/
+    privileged: true
+    ports: 
+      - '80:80'
+    links:
+      - owners-service
+      - pets-service
+
+  owners-service:
+    container_name: owners-service
+    build: ./owners/
+    volumes:
+      - './owners:/usr/src/app'
+      - './owners/package.json:/usr/src/package.json'
+    ports:
+      - '3001:3000' # expose ports - HOST:CONTAINER
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    links:
+      - db-mongo
+
+  pets-service:
+    container_name: pets-service
+    build: ./pets/
+    volumes:
+      - './pets:/usr/src/app'
+      - './pets/package.json:/usr/src/package.json'
+    ports:
+      - '3002:3000' # expose ports - HOST:CONTAINER
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    links:
+      - db-mongo
+  
+  monit-service:
+    container_name: monit-service
+    build: ./monit/
+    deploy:
+      replicas: 3
+      mode: replicated
+      # update_config:
+      #   parallelism: 1
+      # restart_policy:
+      #   condition: on-failure
+      #   delay: 5s
+      #   max_attempts: 3
+    volumes:
+      - './monit:/usr/src/app'
+      - './monit/package.json:/usr/src/package.json'
+    ports:
+      - '3000:3000' # expose ports - HOST:CONTAINER
+    environment:
+      - NODE_ENV=development
+    links:
+      - db-mongo
+    env_file:
+      - ./monit/.env
+
+  # MongoDB
+  db-mongo:
+    container_name: db-mongo
+    build: ./mongoDb/
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongoDb/data:/data/db
+  
+  
