@@ -1,0 +1,17 @@
+  version: "3"
+  services:
+    monit-service:
+      container_name: monit-service
+      privileged: true
+      build: ./
+      volumes:
+        - './:/usr/src/app'
+        - './package.json:/usr/src/package.json'
+      ports:
+        - '8081:3000' # expose ports - HOST:CONTAINER
+      environment:
+        - NODE_ENV=development
+      links:
+        - db-mongo
+      env_file:
+        - ./.env
