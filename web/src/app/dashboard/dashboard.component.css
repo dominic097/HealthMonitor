@@ -1,0 +1,48 @@
+section.dashboard {
+    width: 95%;
+    margin: 0 auto;
+    float: left
+}
+
+.dc--service {
+    float: left;
+    width: 45%;
+    margin: 2%;
+    list-style: none;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2%;
+}
+
+.dot--color-red {
+  background-color: #d87a21e0;
+}
+
+.dot--color-green {
+  background-color: #3ab12fe0;
+}
+
+.service--list-info {
+    float: left;
+    list-style: none;
+    width: 100%;
+}
+
+.service--list-info>li {
+    margin: 2% 0;
+}
+
+.service--list-info>li label:last-child {
+    margin: 0 2%;
+    width: 30%;
+}
+
+.service--list-info>li label:first-child {
+    font-weight: 700;
+}

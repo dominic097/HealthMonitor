@@ -1,0 +1,36 @@
+<section class="dashboard">
+  <ul class="dc">
+    <li class="dc--service" *ngFor="let dc of datacenterLst">
+      <mat-card class="dc-card">
+        <mat-card-header>
+          <h4>
+            Data Center: {{dc | uppercase}}
+          </h4>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item class="service--list" *ngFor="let service of serviceInfo[dc]">
+              <ul class="service--list-info">
+                <li>
+                  <label>Service :</label>
+                  <label> {{service.serviceName}} </label>
+                  <span [ngClass]="(service.status=='ok')?'dot dot--color-green':'dot dot--color-red'"></span>
+                </li>
+                <li>
+                  <label>Status :</label>
+                  <label> {{service.status}} </label>
+                </li>
+                <li>
+                  <label>last updated:</label>
+                  <label> {{service.lastUpdatedTime}} </label>
+                </li>
+              </ul>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </li>
+  </ul>
+
+
+</section>
