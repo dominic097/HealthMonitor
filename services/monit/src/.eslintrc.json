@@ -1,16 +1,22 @@
 {
-    "extends": "airbnb-base",
-    "plugins": [
-      "import"
-    ],
-    "rules": {
-      "arrow-body-style": "off"
-    },
-    "globals": {
-      "it": false,
-      "describe": false,
-      "beforeEach": false,
-      "afterEach": false
+  "extends": "airbnb-base",
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "arrow-body-style": "off"
+  },
+  "globals": {
+    "it": false,
+    "describe": false,
+    "beforeEach": false,
+    "afterEach": false
+  },
+  "parser": "typescript-eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
     }
   }
-  
+}
