@@ -1,8 +1,8 @@
 import * as express from 'express';
-import monitRoute from './health/health.route';
+import monitRoute from './modules/health/health.route';
 
 const router = express.Router();
 
-router.use('/monit', monitRoute);
+router.use('/', monitRoute);
 
 export default router;

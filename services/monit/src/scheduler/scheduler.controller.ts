@@ -1,11 +1,11 @@
-import HealthController from './../health/health.controller';
-import config from './../config/sysConfig';
+import HealthController from './../modules/health/health.controller';
+import { appConfig } from './../config/';
 import Lock from './scheduler.lock';
 
 const healthController = new HealthController();
 
 const scheduler = () => {
-  const schedulerID = config.nodeId;
+  const schedulerID = appConfig.nodeId;
   healthController.collectHealthInfo();
   console.log(`schedulerID::  + ${schedulerID}`);
 };
@@ -14,7 +14,7 @@ export default {
   init: () => {
     const healthInterval = setInterval(() => {
       const __lock__ = new Lock('scheduler', {
-        timeout: config.intervalTime * 1,
+        timeout: appConfig.intervalTime * 1,
       });
       __lock__.acquire((err, lockAcquired) => {
         console.log(lockAcquired);
@@ -24,7 +24,7 @@ export default {
           scheduler();
         }
       });
-    }, config.intervalTime);
+    }, appConfig.intervalTime);
   }
 };
 

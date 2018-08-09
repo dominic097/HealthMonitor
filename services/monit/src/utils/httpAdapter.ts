@@ -22,14 +22,15 @@ function normalizeError(mess, data, status) {
  * @param {object} response The response.
  */
 function settle(resolve, reject, response) {
+  const payload = { ...response.config, data: response.data, status: response.statusText, statusCode: response.status };
   if (typeof response.status !== 'undefined' && response.status <= 400) {
-    resolve(response);
+    resolve(payload);
   } else {
-    reject(normalizeError(`Request failed with status code ${response.status}`, { ...response.config, data: response.data }, response.status));
+    reject(normalizeError(`Request failed with status code ${response.status}`, payload, response.status));
   }
 }
 
-export default (config) => {
+export const httpAdaptor = (config) => {
   return new Promise((resolve, reject) => {
     const headers = config.headers || {};
     let timer = null;

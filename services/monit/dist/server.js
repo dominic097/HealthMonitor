@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = require("http");
 const mongoose = require("mongoose");
-const sysConfig_1 = require("./config/sysConfig");
+const config_1 = require("./config/");
 const scheduler_controller_1 = require("./scheduler//scheduler.controller");
 const app_1 = require("./app");
 // const app = require('./app');
-const mongoUri = sysConfig_1.default.mongo.host;
-const port = sysConfig_1.default.port || '3000';
+const mongoUri = config_1.appConfig.mongo.host;
+const port = config_1.appConfig.port || '3000';
 function onError(error) {
     if (error.syscall !== 'listen') {
         throw error;

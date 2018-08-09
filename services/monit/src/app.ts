@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use('/', router);
+app.use('/monit', router);
 
 app.use((req, res, next) => {
   const err: API_ERROR = { ... new Error('API Not Found'), status: 404 };

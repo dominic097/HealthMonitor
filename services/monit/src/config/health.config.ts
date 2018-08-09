@@ -1,4 +1,4 @@
-const config = [
+export const healthConfig = [
   {
     dataCenter: 'owners-service',
     serviceName: 'owners-service',
@@ -15,6 +15,5 @@ const config = [
   },
 ];
 
-
-export default config;
+export const dataCenter = ['owners-service', 'pets-service']
 

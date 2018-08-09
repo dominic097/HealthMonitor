@@ -35,7 +35,7 @@ if (error) {
   throw new Error(`Config validation error: ${error.message}`);
 }
 
-const config = {
+export const appConfig = {
   nodeId,
   env: envVars.NODE_ENV,
   port: envVars.PORT,
@@ -46,4 +46,3 @@ const config = {
   },
   intervalTime: envVars.SCHEDULER_INTERVAL, 
 };
-export default config;

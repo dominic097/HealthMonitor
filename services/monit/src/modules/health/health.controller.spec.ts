@@ -1,11 +1,11 @@
 import * as mongoose from 'mongoose';
 import db from './../health/health.model';
-import config from '../config/sysConfig';
+import { appConfig } from '../../config/';
 import HealthController from './../health/health.controller';
 
 
 const healthController = new HealthController();
-const mongoUri = config.mongo.host;
+const mongoUri = appConfig.mongo.host;
 const dataCenterName = 'test-service';
 const testData = {
   dataCenter: dataCenterName,
@@ -23,14 +23,14 @@ describe('health-controller-test', () => {
   });
 
   it('create-dc-stat-test', (done) => {
-    healthController.updateHealthInfo(testData)
+    healthController.update(testData)
       .then((res) => {
         done();
       });
   });
 
   it('get health info by DC', (done) => {
-    HealthController.getHealthInfoByDC(dataCenterName).then((res: Array<any>) => {
+    healthController.get(dataCenterName).then((res: Array<any>) => {
       if (res.length > 0 && res[0].dataCenter == dataCenterName) {
         done();
       }
@@ -46,7 +46,9 @@ describe('health-controller-test', () => {
   });
 
   it('get all micro service health info', (done) => {
-    HealthController.getHealthInfo().then((res: Array<any>) => {
+    healthController.get().then((res: Array<any>) => {
+      console.log('res----');
+      console.log(res);
       if (res.length > 0) {
         done();
       }
@@ -54,8 +56,8 @@ describe('health-controller-test', () => {
   });
 
   it('get DC list from config ', (done) => {
-    const dclist = HealthController.getDataCenter();
-    if (dclist.length > 0 ) {
+    const dclist = healthController.dataCenter;
+    if (dclist.length > 0) {
       done();
     }
   });

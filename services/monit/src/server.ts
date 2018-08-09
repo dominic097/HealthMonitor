@@ -1,13 +1,13 @@
 import { Server, createServer } from 'http';
 import * as mongoose from 'mongoose';
-import config from './config/sysConfig';
+import { appConfig } from './config/';
 import scheduler from './scheduler//scheduler.controller';
 import app from './app';
 
 // const app = require('./app');
 
-const mongoUri = config.mongo.host;
-const port = config.port || '3000';
+const mongoUri = appConfig.mongo.host;
+const port = appConfig.port || '3000';
 
 function onError(error) {
   if (error.syscall !== 'listen') { throw error; }

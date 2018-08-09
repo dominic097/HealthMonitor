@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const request = require("supertest");
 const mongoose = require("mongoose");
 const app_1 = require("./app");
-const sysConfig_1 = require("./config/sysConfig");
-const health_controller_1 = require("./health/health.controller");
+const config_1 = require("./config/");
+const health_controller_1 = require("./modules/health/health.controller");
 const healthController = new health_controller_1.default();
-const mongoUri = sysConfig_1.default.mongo.host;
+const mongoUri = config_1.appConfig.mongo.host;
 const dataCenterName = 'test-service';
 const testData = {
     dataCenter: dataCenterName,
@@ -21,11 +21,6 @@ describe('health monit API test ', () => {
             done();
         });
     });
-    it('collect Stats', (done) => {
-        setTimeout(() => {
-            done();
-        }, 20000);
-    }).timeout(25000);
     it('expected 404', (done) => {
         request(app_1.default).get('/')
             .expect(404)

@@ -1,11 +1,11 @@
 import * as request from 'supertest';
 import * as mongoose from 'mongoose';
 import app from './app';
-import config from './config/sysConfig';
-import HealthController from './health/health.controller';
+import { appConfig } from './config/';
+import HealthController from './modules/health/health.controller';
 
 const healthController = new HealthController();
-const mongoUri = config.mongo.host;
+const mongoUri = appConfig.mongo.host;
 const dataCenterName = 'test-service';
 const testData = {
   dataCenter: dataCenterName,
@@ -21,12 +21,6 @@ describe('health monit API test ', () => {
       done();
     });
   });
-
-  it('collect Stats', (done) => {
-    setTimeout(() => {
-      done();
-    }, 20000);
-  }).timeout(25000);
 
   it('expected 404', (done) => {
     request(app).get('/')

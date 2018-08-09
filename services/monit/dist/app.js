@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use('/', index_route_1.default);
+app.use('/monit', index_route_1.default);
 app.use((req, res, next) => {
     const err = Object.assign({}, new Error('API Not Found'), { status: 404 });
     next(err);
