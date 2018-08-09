@@ -46,12 +46,8 @@ describe('health-controller-test', () => {
   });
 
   it('get all micro service health info', (done) => {
-    healthController.get().then((res: Array<any>) => {
-      console.log('res----');
-      console.log(res);
-      if (res.length > 0) {
-        done();
-      }
+    healthController.get().then((res) => {
+      done();
     });
   });
 
